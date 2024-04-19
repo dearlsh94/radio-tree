@@ -1,0 +1,22 @@
+[
+  {
+    "name": "SBS 파워FM 편성표",
+    "url": "https://www.sbs.co.kr/schedule/index.html?type=ra&channel=Power"
+  },
+  {
+    "name": "SBS 러브FM 편성표",
+    "url": "https://www.sbs.co.kr/schedule/index.html?type=ra&channel=Love"
+  },
+  {
+    "name": "KBS 라디오 편성표",
+    "url": "https://schedule.kbs.co.kr/index.html?sname=schedule&stype=table&type=radioList"
+  },
+  {
+    "name": "MBC FM4U 편성표",
+    "url": "https://m.imbc.com/schedule/fm4u"
+  },
+  {
+    "name": "MBC FM 편성표",
+    "url": "https://m.imbc.com/schedule/fm"
+  }
+]

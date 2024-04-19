@@ -1,0 +1,126 @@
+---
+import RADIO_CHANNELS from "../data/radioChannels/radio_channels.json";
+import type { RadioChannel, Program } from "../data/radioChannels";
+import RADIO_SCHEDULE_SITES from "../data/radioScheduleSites/radio_schedules_sites.json";
+import type { RadioScheduleSite } from "../data/radioScheduleSites";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/radio-star-logo.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta content="index,follow" name="robots" />
+    <meta content="kr" name="content-language" />
+    <meta content={"website"} property="og:type" />
+    <meta
+      content={[
+        "treefeely",
+        "radio",
+        "radio star",
+        "radio schedule",
+        "radio program",
+      ].join(", ")}
+      name="keywords"
+    />
+
+    <meta content={"website"} property="og:type" />
+    <meta content={"라디오 스타"} property="og:title" />
+    <meta
+      content={"한국 서울 기준 주요 라디오 주파수와 누군가의 취향이 담긴 주요 프로그램의 시작 시간을 보여주는 곳이예요."}
+      property="og:description"
+    />
+    <meta content={"https://radio-star.treefeely.com"} property="og:url" />
+    <meta content={"라디오 스타"} property="og:site_name" />
+    <meta content={"ko_KR"} property="og:locale" />
+    <meta content={'/radio-star-thumbnail.png'} property="og:image" />
+    <meta content={"1200"} property="og:image:width" />
+    <meta content={"라디오 스타"} property="twitter:title" />
+    <meta
+      content={"한국 서울 기준 주요 라디오 주파수와 누군가의 취향이 담긴 주요 프로그램의 시작 시간을 보여주는 곳이예요."}
+      property="twitter:description"
+    />
+    <meta content={"https://radio-star.treefeely.com"} property="twitter:url" />
+    <meta content={'/radio-star-thumbnail.png'} property="twitter:image" />
+
+    <title>라디오 스타</title>
+  </head>
+  <body>
+    {
+      RADIO_SCHEDULE_SITES.length > 0 && (
+        <section>
+          <h2>주요 라디오 편성표 바로가기</h2>
+          <ul>
+            {RADIO_SCHEDULE_SITES.map((site: RadioScheduleSite) => (
+              <li>
+                <a href={site.url} target="_blank" rel="noopener noreferrer">
+                  {site.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+    {
+      RADIO_CHANNELS.length > 0 && (
+        <section>
+          <h2>라디오 채널 및 주요 프로그램</h2>
+          <i>주의. 누군가의 취향이 잔뜩 들어간 선정입니다.</i>
+          <ul>
+            {RADIO_CHANNELS.map((channel: RadioChannel) => (
+              <li>
+                <h3>
+                  {channel.type} - {channel.frequency} - {channel.company}
+                </h3>
+                <ul>
+                  {channel.programs.length > 0 ? (
+                    channel.programs.map((program: Program) => (
+                      <li>
+                        <time>{program.start_time}</time>
+                        {" - "}
+                        <span>{program.name}</span>
+                      </li>
+                    ))
+                  ) : (
+                    <li>아직 선정된 프로그램이 없어요.</li>
+                  )}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+    <hr />
+    <section>
+      <h2>라디오 스타 소개</h2>
+      <i>
+        마지막 업데이트: <time>2024-04-19</time>
+      </i>
+      <p>
+        라디오 스타는 한국 서울 기준 주요 라디오 주파수와 누군가의 취향이 담긴
+        주요 프로그램의 시작 시간을 보여주는 곳이예요.<br />
+        담백한 라디오의 매력을 담기 위해 덜어내다 보니 스타일도 빠져버렸습니다.
+      </p>
+      <details>
+        <summary> TMI </summary>
+        <small>
+          TMI 1. "유인나의 볼륨을 높여요"에 사연을 쓰고 가방을 받은 적이 있다.<br
+          />
+          TMI 2. 새벽 라디오를 듣기 위해 일어났다가 다시 잠들던 적이 있다.<br />
+          TMI 3. "권은비의 영 스트리트"를 들으며 이 사이트를 개발했다.
+        </small>
+      </details>
+    </section>
+    <hr />
+    <footer>
+      <p>Copyright 2024. Ethan. All rights reserved.</p>
+      <p>
+        Contact: <a href="mailto:dearlsh94@gmail.com">dearlsh94@gmail.com</a>
+      </p>
+    </footer>
+  </body>
+</html>
