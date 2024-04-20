@@ -96,27 +96,42 @@ import type { RadioScheduleSite } from "../data/radioScheduleSites";
                 <h3>
                   {channel.type} - {channel.frequency} - {channel.company}
                 </h3>
-                <ul>
-                  {channel.programs.length > 0 ? (
-                    channel.programs.map((program: Program) => (
-                      <li>
-                        <time>{program.start_time}</time>
-                        {" - "}
-                        <span>{program.name}</span>
-                        <a
-                          href={program.url}
-                          aria-label={`${program.name} 바로가기`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          (바로가기)
-                        </a>
-                      </li>
-                    ))
-                  ) : (
-                    <li>아직 선정된 프로그램이 없어요.</li>
-                  )}
-                </ul>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>시작 시간</th>
+                      <th>| 프로그램 이름</th>
+                      <th>| 링크</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {channel.programs.length > 0 ? (
+                      channel.programs.map((program: Program) => (
+                        <tr>
+                          <td>
+                            <time>{program.start_time}</time>
+                          </td>
+                          <td>| {program.name}</td>
+                          <td>
+                            |
+                            <a
+                              href={program.url}
+                              aria-label={`${program.name} 바로가기`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              바로가기
+                            </a>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colspan="3">아직 선정된 프로그램이 없어요.</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </li>
             ))}
           </ul>
