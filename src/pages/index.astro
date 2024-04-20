@@ -71,7 +71,12 @@ import type { RadioScheduleSite } from "../data/radioScheduleSites";
           <ul>
             {RADIO_SCHEDULE_SITES.map((site: RadioScheduleSite) => (
               <li>
-                <a href={site.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={site.url}
+                  aria-label={`${site.name} 바로가기`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {site.name}
                 </a>
               </li>
@@ -98,6 +103,14 @@ import type { RadioScheduleSite } from "../data/radioScheduleSites";
                         <time>{program.start_time}</time>
                         {" - "}
                         <span>{program.name}</span>
+                        <a
+                          href={program.url}
+                          aria-label={`${program.name} 바로가기`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          (바로가기)
+                        </a>
                       </li>
                     ))
                   ) : (

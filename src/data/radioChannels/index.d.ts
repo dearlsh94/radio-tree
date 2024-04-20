@@ -8,6 +8,7 @@ export interface RadioChannel {
 export interface Program {
   start_time: string;
   name: string;
+  url: string;
 }
 
 export interface RadioChannelsFile {
