@@ -5,6 +5,11 @@
     "company": "SBS 파워FM",
     "programs": [
       {
+        "start_time": "07:00",
+        "name": "김영철의 파워FM",
+        "url": "https://programs.sbs.co.kr/radio/0chulpowerfm/main"
+      },
+      {
         "start_time": "11:00",
         "name": "박하선의 씨네타운",
         "url": "https://programs.sbs.co.kr/radio/cinetown11/main"
